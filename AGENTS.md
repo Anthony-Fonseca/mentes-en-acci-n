@@ -28,3 +28,7 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+- Game content lives only in `src/data/theories.ts`; rules/scoring are pure functions in `src/lib/game.ts` (tested) so content and logic stay editable separately.
+- Progress persists in localStorage only; the app is frontend-only by requirement.
