@@ -118,7 +118,7 @@ function Stat({ label, value }: { label: string; value: string | number }) {
   );
 }
 
-function CardFace({ id, lifted, placed, selected }: { id: string; lifted?: boolean; placed?: TheoryId; selected?: boolean }) {
+function CardFace({ id, lifted, placed, selected }: { id: string; lifted?: boolean; placed?: TheoryId | undefined; selected?: boolean }) {
   const card = getCard(id);
   return (
     <div className={`rounded-xl border-2 bg-paper p-3 text-sm leading-snug ${placed ? `${COLOR[placed].border} text-xs` : "border-border"} ${selected ? "ring-4 ring-accent" : ""} ${lifted ? "rotate-2 cursor-grabbing shadow-2xl" : "shadow-soft"}`}>
@@ -128,7 +128,7 @@ function CardFace({ id, lifted, placed, selected }: { id: string; lifted?: boole
   );
 }
 
-function DraggableCard({ id, placed, selected, hidden, onSelect }: { id: string; placed?: TheoryId; selected: boolean; hidden: boolean; onSelect: () => void }) {
+function DraggableCard({ id, placed, selected, hidden, onSelect }: { id: string; placed?: TheoryId | undefined; selected: boolean; hidden: boolean; onSelect: () => void }) {
   const { attributes, listeners, setNodeRef } = useDraggable({ id });
   return (
     <div ref={setNodeRef} {...listeners} {...attributes} onClick={onSelect} className={`cursor-grab touch-manipulation select-none transition-opacity ${hidden ? "opacity-30" : ""}`}>
