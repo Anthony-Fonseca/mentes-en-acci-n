@@ -10,7 +10,7 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 const isGitHubPages = process.env["GITHUB_PAGES"] === "true";
-const repositoryName = "teorias-aprendizaje-game";
+const repositoryName = "mentes-en-acci-n";
 const repositoryBase = `/${repositoryName}/`;
 
 export default defineConfig({
