@@ -38,9 +38,7 @@ jobs:
 
       - name: Prepare the static dist folder
         run: |
-          mv dist/client .pages-dist
-          rm -rf dist
-          mv .pages-dist dist
+          mv .output/public dist
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
