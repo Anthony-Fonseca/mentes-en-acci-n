@@ -42,10 +42,12 @@ jobs:
           ls -la .output/public
           echo "=== Files inside .output/public ==="
           find .output/public -maxdepth 4 -type f | sort
-
+          
       - name: Prepare the static dist folder
         run: |
-          mv .output/public dist
+          rm -rf dist
+          mkdir -p dist
+          cp -a .output/public/. dist/
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
