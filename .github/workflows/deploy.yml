@@ -35,6 +35,13 @@ jobs:
 
       - name: Build static application
         run: bun run build
+        
+      - name: Inspect generated static files
+        run: |
+          echo "=== Contents of .output/public ==="
+          ls -la .output/public
+          echo "=== Files inside .output/public ==="
+          find .output/public -maxdepth 4 -type f | sort
 
       - name: Prepare the static dist folder
         run: |
